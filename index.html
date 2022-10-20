@@ -413,68 +413,94 @@
     <div data-modal class="backdrop is-hidden">
       <div class="modal">
         <button tupe="button" data-modal-close class="modal-btn">
-          <svg width="18" height="18">
+          <svg width="18" height="18" class="button-svg">
             <use href="./img/symbol-defs.svg#icon-close-black"></use>
           </svg>
         </button>
 
         <form name="signup_form" class="modal-form">
           <p class="modal-text">Залиште свої дані, ми вам передзвонимо</p>
-          <div class="form-field">
-            <label for="user_name" class="form-label">Ім'я</label>
-            <svg class="icon-form" width="18" height="18">
-              <use href="./img/symbol-defs.svg#icon-person-black"></use>
-            </svg>
+          <ul class="list-form">
+            <li class="item-form">
+              <div class="form-field">
+                <label for="user_name" class="form-label">Ім'я</label>
+                <div class="form-input-icon">
+                  <input
+                    class="form-input"
+                    type="name"
+                    name="user-name"
+                    id="user_name"
+                  />
+                  <svg class="icon-form" width="18" height="18">
+                    <use href="./img/symbol-defs.svg#icon-person-black"></use>
+                  </svg>
+                </div>
+              </div>
+            </li>
+            <li class="item-form">
+              <div class="form-field">
+                <label for="user_tel" class="form-label">Телефон</label>
+                <div class="form-input-icon">
+                  <input
+                    class="form-input"
+                    type="tel"
+                    name="user-tel"
+                    id="user_tel"
+                  />
+                  <svg class="icon-form" width="18" height="18">
+                    <use href="./img/symbol-defs.svg#icon-phone-black"></use>
+                  </svg>
+                </div>
+              </div>
+            </li>
+            <li class="item-form">
+              <div class="form-field">
+                <label for="user_email" class="form-label">Пошта</label>
+                <div class="form-input-icon">
+                  <input
+                    class="form-input"
+                    type="email"
+                    name="user-email"
+                    id="user_email"
+                  />
+                  <svg class="icon-form" width="18" height="18">
+                    <use href="./img/symbol-defs.svg#icon-email-black"></use>
+                  </svg>
+                </div>
+              </div>
+            </li>
+            <li class="item-form">
+              <div class="form-field">
+                <label for="comment" class="form-label">Коментар</label>
+                <textarea
+                  class="form-textarea form-input"
+                  name="comment"
+                  id="comment"
+                  rows="10"
+                  cols="20"
+                  placeholder="Введіть текст"
+                ></textarea>
+              </div>
+            </li>
+          </ul>
+          <div class="privacy">
             <input
-              class="form-input"
-              type="name"
-              name="user-name"
-              id="user_name"
+              type="checkbox"
+              name="consent"
+              value="true"
+              id="privacy"
+              class="privacy-check visually-hidden"
             />
-          </div>
-          <div class="form-field">
-            <label for="user_tel" class="form-label">Телефон</label>
-            <svg class="icon-form" width="18" height="18">
-              <use href="./img/symbol-defs.svg#icon-phone-black"></use>
-            </svg>
-            <input
-              class="form-input"
-              type="tel"
-              name="user-tel"
-              id="user_tel"
-            />
-          </div>
-          <div class="form-field">
-            <label for="user_email" class="form-label">Пошта</label>
-            <svg class="icon-form" width="18" height="18">
-              <use href="./img/symbol-defs.svg#icon-email-black"></use>
-            </svg>
-            <input
-              class="form-input"
-              type="email"
-              name="user-email"
-              id="user_email"
-            />
-          </div>
-          <div class="form-field">
-            <label for="comment" class="form-label">Коментар</label>
-            <textarea
-              class="form-textarea"
-              name="comment"
-              id="comment"
-              rows="10"
-              cols="20"
-              placeholder="Введіть текст"
-            ></textarea>
-          </div>
-          <div class="consent">
-            <p class="consent-text">
-              <input type="checkbox" name="consent" class="consent-check" />
+            <label class="privacy-text" for="privacy">
+              <span class="check">
+                <svg class="check-icon" width="11" height="8">
+                  <use href="./img/symbol-defs.svg#icon-check"></use></svg
+              ></span>
               Погоджуюся з розсилкою та приймаю
-              <a href="#" class="consent-link">Умови договору</a>
-            </p>
+              <a href="#" class="privacy-link">Умови договору</a>
+            </label>
           </div>
-          <button class="consent-button" type="submit">Відправити</button>
+          <button class="form-button" type="submit">Відправити</button>
         </form>
       </div>
     </div>

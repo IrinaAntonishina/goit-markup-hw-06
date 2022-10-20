@@ -18,6 +18,7 @@ body {
   --transition-color: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-background-color: background-color 250ms
     cubic-bezier(0.4, 0, 0.2, 1);
+  --color-placeholder: rgba(117, 117, 117, 0.5);
 }
 .container {
   width: 1200px;
@@ -51,6 +52,20 @@ img {
   display: block;
   height: auto;
   max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* --------------Header-------------- */
@@ -280,9 +295,7 @@ span {
   display: flex;
   gap: 30px;
 }
-/* .projects-item.projects-img {
-  position: relative;
-} */
+
 .projects-item {
   position: relative;
   flex-basis: calc(100% -60px / 3);
@@ -541,20 +554,6 @@ span {
 
 /* --------------Alinement---------------- */
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
 .portfolio {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -709,6 +708,12 @@ span {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+  outline: transparent;
+}
+
+.modal-btn:hover .button-svg,
+.modal-btn:focus .button-svg {
+  fill: var(--color-accent);
 }
 
 /* -----------Modal Form------------------ */
@@ -718,7 +723,7 @@ span {
 }
 
 .modal-text {
-  margin-bottom: 12px;
+  padding-bottom: 12px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
@@ -726,17 +731,31 @@ span {
   letter-spacing: 0.03em;
   color: var(--color-title);
 }
+.item-form:not(:last-child) {
+  padding-bottom: 10px;
+}
 
 .form-input {
   display: block;
-  margin-bottom: 10px;
   width: 100%;
   height: 40px;
   border: 1px solid rgba(163, 105, 105, 0.2);
   border-radius: 4px;
   padding-left: 42px;
+  outline: transparent;
 }
-.form-field {
+
+.form-input:hover + .icon-form,
+.form-input:focus + .icon-form {
+  fill: var(--color-accent);
+}
+.form-input:hover,
+.form-input:focus {
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-input-icon {
   position: relative;
 }
 
@@ -745,14 +764,23 @@ span {
   left: 12px;
   position: absolute;
   display: inline-block;
+  transform: translateY(-50%);
 }
 .form-textarea {
   padding: 12px 16px;
   width: 100%;
   height: 120px;
 }
+.form-textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--color-placeholder);
+}
 
 .form-label {
+  display: inline-block;
+  margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
@@ -765,27 +793,48 @@ span {
   border-radius: 4px;
 }
 
-.consent {
-  display: flex;
-  align-items: center;
+.privacy {
   padding-top: 20px;
   padding-bottom: 30px;
 }
-.consent-text {
-  display: inline;
+.privacy-text + .privacy-link {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+}
+.privacy-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   color: var(--color-text);
 }
-.consent-link {
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
+
+.check {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--color-title);
+  border-radius: 2px;
+}
+
+.check-icon {
+  fill: var(--text-white);
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+}
+.privacy-check:checked + .privacy-text span {
+  border: transparent;
+  background-color: var(--color-accent);
+}
+
+.privacy-link {
   text-decoration-line: underline;
   color: var(--color-accent);
 }
-.consent-button {
+.form-button {
   margin: 0 auto;
   padding: 10px 52px;
   font-weight: 700;
