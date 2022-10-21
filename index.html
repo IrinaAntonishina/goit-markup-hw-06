@@ -408,6 +408,30 @@
             </li>
           </ul>
         </div>
+        <div class="subscribe">
+          <form name="subscribe" class="subscribe-form">
+            <p class="subscribe-text">Підпишіться на розсилку</p>
+            <label>
+              <input
+                type="email"
+                id="subscribe-email"
+                name="subscribe-email"
+                class="subscribe-input"
+                placeholder="E-mail"
+              />
+            </label>
+
+            <button type="submit" class="subscribe-button">
+              Підписатися
+              <svg class="subscribe-svg" width="24" height="24">
+                <use
+                  href="./img/symbol-defs.svg#icon-send"
+                  class="subscribe-icon"
+                ></use>
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
     <div data-modal class="backdrop is-hidden">
@@ -489,9 +513,9 @@
               name="consent"
               value="true"
               id="privacy"
-              class="privacy-check visually-hidden"
+              class="privacy-input visually-hidden"
             />
-            <label class="privacy-text" for="privacy">
+            <label class="privacy-label" for="privacy">
               <span class="check">
                 <svg class="check-icon" width="11" height="8">
                   <use href="./img/symbol-defs.svg#icon-check"></use></svg
